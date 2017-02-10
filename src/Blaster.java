@@ -1,5 +1,6 @@
 
 public class Blaster extends Weapon{
+
 	private static int nbInstances = 0;
 	private double gazLevel;
 	
