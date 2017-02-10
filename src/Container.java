@@ -1,10 +1,8 @@
 
 public class Container extends Equipment {
 
-	public Container(double mass, double volume)
+	public Container(double volume, double mass)
 	{
-		this.setMass(mass);
-		this.setVolume(volume);
-		
+		super(volume, mass);
 	}
 }
