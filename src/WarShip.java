@@ -1,56 +1,28 @@
-<<<<<<< HEAD
-public class WarShip extends Ship {
-	private int maxNbWeapons;
+public class WarShip extends Ship implements WeaponEquipper {
 
-	WarShip(double volume, double mass, int maxNbWeapon) {
-		super(volume, mass);
-		this.maxNbWeapons = maxNbWeapon;
-	}
-
-	int getMaxNbWeapons() {
-		return maxNbWeapons;
-	}
-
-	void setMaxWeapons(int maxWeapons) {
-		this.maxNbWeapons = maxWeapons;
-	}
-
-=======
-
-
-public class WarShip extends Ship implements War{
-	public static int instanceNbr=0;
+	private static int nbInstances = 0;
 	protected int maxWeapons;
 
 
-	public WarShip(double mass, double volume, int maxWeapons){
-		super(mass, volume);
+	public WarShip(double volume, double mass, int maxWeapons){
+		super(volume, mass);
 		this.maxWeapons = maxWeapons;
-		this.name = "Warship" + ++instanceNbr;
-
+		this.name = "Warship" + ++WarShip.nbInstances;
 	}
 
-	int getMaxWeapons() {
+	public int getMaxWeapons() {
 		return maxWeapons;
 	}
-	void setMaxWeapons(int maxWeapons) {
-		this.maxWeapons = maxWeapons;
+
+	public void equip(Weapon weapon) {
+		WeaponEquipper.super.equip(weapon);
+		weapon.setLocation(this);
+		weapon.setEquipped(true);
 	}
 
-	void setShipment(Weapon weapon) {
-		if (this.shipment.size()<maxWeapons && !weapon.getIs_equiped())
-		{
-		    weapon.setIs_equiped(true);
-		    this.shipment.add(weapon);
-		    weapon.setLocation(this);
-		}
+	public void unequip(Weapon weapon) {
+		WeaponEquipper.super.unequip(weapon);
+		weapon.setLocation(null);
+		weapon.setEquipped(false);
 	}
-
-    protected void unloadShipment(Weapon weapon) {
-        this.shipment.remove(weapon);
-        weapon.setLocation(null);
-        weapon.setIs_equiped(false);
-    }
->>>>>>> eef0c545085b0f489848dfa0a0b0372bb98bc172
-
 }

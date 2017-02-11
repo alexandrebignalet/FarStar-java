@@ -1,38 +1,34 @@
 import java.util.ArrayList;
 
-public class Ship extends Equipment {
-    protected ArrayList<Equipment> shipment;
+public abstract class Ship extends Equipment implements Transporter {
+    private ArrayList<Equipment> equipments;
 
-    public Ship(double mass, double volume){
-        super(mass,volume);
-        this.shipment = new ArrayList<>();
+    public Ship(double volume, double mass) {
+        super(volume, mass);
+        this.equipments = new ArrayList<>();
     }
 
-    public ArrayList<Equipment> getShipment() {
-        return shipment;
+    public ArrayList<Equipment> getEquipments() {
+        return equipments;
     }
 
-    protected void setShipment(Equipment equipment) {
-        if (equipment.getLocation() != null)
-        {
-            throw new IllegalArgumentException("Location isn t null for this equipment");
-        }
-
-        this.shipment.add(equipment);
-
-        equipment.setLocation(this);
-    }
-
-    protected void unloadShipment(Equipment equipment) {
-        this.shipment.remove(equipment);
-        equipment.setLocation(null);
-    }
+//    public void load(Equipment equipment) {
+//        Transporter.super.load(equipment);
+//        equipment.setLocation(this);
+//    }
+//
+//    public void unload(Equipment equipment) {
+//        Transporter.super.unload(equipment);
+//        equipment.setLocation(null);
+//    }
 
     double getMass(){
-        double total=this.mass;
-        for (Equipment eq : this.shipment) {
-            total = total+eq.getMass();
+        double total = this.mass;
+
+        for (Equipment equipment : this.equipments) {
+            total += equipment.getMass();
         }
+
         return total;
     }
 }
