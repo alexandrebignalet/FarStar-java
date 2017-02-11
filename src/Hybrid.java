@@ -1,33 +1,21 @@
-import java.util.ArrayList;
 
-public class Hybrid extends TransportShip implements War{
+public class Hybrid extends TransportShip {
+
+	private static int nbInstances = 0;
+//	private int maxWeapons;
+
 	
-	private int maxWeapons;
-	private ArrayList<Weapon> weapons;
-	
-	public Hybrid(double mass, double volume, double massCapacity, double volumetricCapacity, int maxWeapons) {
-		super(mass, volume, massCapacity, volumetricCapacity);
-		this.setMaxWeapons(maxWeapons);
-		
+	public Hybrid(double volume, double mass, double massCapacity, double volumetricCapacity, int maxWeapons) {
+		super(volume, mass, massCapacity, volumetricCapacity);
+
+//		this.maxWeapons = maxWeapons;
+		this.name= "Hybrid Ship"+ ++Hybrid.nbInstances;
 	}
-	
-	int getMaxWeapons() {
-		return maxWeapons;
+
+	void equip(Weapon weapon) {
+
 	}
-	void setMaxWeapons(int maxWeapons) {
-		this.maxWeapons = maxWeapons;
-	}
-	ArrayList<Weapon> getWeapons() {
-		return weapons;
-	}
-	void equipWeapon(Weapon weapon) {
-		if (this.weapons.size()<2)
-		{
-		this.weapons.add(weapon);
-		}
-	}
-	void unequipWeapon(Weapon weapon) {
-		
-		this.weapons.remove(weapon);
+	public void unequip(Equipment equipment){
+
 	}
 }

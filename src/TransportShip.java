@@ -1,39 +1,58 @@
-import java.util.ArrayList;
+public class TransportShip extends Ship implements EquipmentTransporter {
+	private static int nbInstances = 0;
 
-public class TransportShip extends Ship {
+	protected double weightCapacity;
+	protected double volumeCapacity;
+	protected double volumeCapacityRemaining;
+	protected double weightCapacityRemaining;
 
-	private double massCapacity;
-	private double volumetricCapacity;
-	private ArrayList<Equipment> equipment;
-	
-	public TransportShip(double mass, double volume, double massCapacity, double volumetricCapacity){
-		this.setMass(mass);
-		this.setVolume(volume);
-		this.setMassCapacity(massCapacity);
-		this.setVolumetricCapacity(volumetricCapacity);
+	public TransportShip(double volume, double mass, double volumeCapacity, double weightCapacity){
+
+		super(volume, mass);
+
+		if (volume <= volumeCapacity) {
+			throw new IllegalArgumentException("volumetric capacity must be greater than volume");
+		}
+
+		this.volumeCapacity = volumeCapacity;
+		this.weightCapacity = weightCapacity;
+
+		this.volumeCapacityRemaining = volumeCapacity;
+		this.weightCapacityRemaining = weightCapacity;
+
+		this.name ="VT-" + ++TransportShip.nbInstances;
 	}
-	
-	double getMassCapacity() {
-		return massCapacity;
+
+	public void load(Equipment equipment) {
+
+		EquipmentTransporter.super.load(equipment);
+		equipment.setLocation(this);
+		this.volumeCapacityRemaining -= equipment.getVolume();
+		this.weightCapacityRemaining -= equipment.getMass();
 	}
-	void setMassCapacity(double massCapacity) {
-		this.massCapacity = massCapacity;
+
+	public void unload(Equipment equipment) {
+
+		EquipmentTransporter.super.unload(equipment);
+		equipment.setLocation(null);
+		this.volumeCapacityRemaining += equipment.getVolume();
+		this.weightCapacityRemaining += equipment.getMass();
 	}
-	double getVolumetricCapacity() {
-		return volumetricCapacity;
+
+
+	public double getWeightCapacity() {
+		return weightCapacity;
 	}
-	void setVolumetricCapacity(double volumetricCapacity) {
-		this.volumetricCapacity = volumetricCapacity;
+
+	public double getVolumeCapacity() {
+		return volumeCapacity;
 	}
-	ArrayList<Equipment> getEquipment() {
-		return equipment;
+
+	public double getVolumeCapacityRemaining() {
+		return this.volumeCapacityRemaining;
 	}
-	void load(Equipment equipment) {
-		this.equipment.add(equipment);
+
+	public double getWeightCapacityRemaining() {
+		return this.weightCapacityRemaining;
 	}
-	
-	void unload(Equipment equipment) {
-		this.equipment.remove(equipment);
-	}
-	
 }

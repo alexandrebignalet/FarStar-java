@@ -1,26 +1,28 @@
-import java.util.ArrayList;
+public class WarShip extends Ship implements WeaponEquipper {
 
-public class WarShip extends Ship implements War{
-	private int maxWeapons;
-	private ArrayList<Weapon> weapons;
-	
-	int getMaxWeapons() {
+	private static int nbInstances = 0;
+	protected int maxWeapons;
+
+
+	public WarShip(double volume, double mass, int maxWeapons){
+		super(volume, mass);
+		this.maxWeapons = maxWeapons;
+		this.name = "Warship" + ++WarShip.nbInstances;
+	}
+
+	public int getMaxWeapons() {
 		return maxWeapons;
 	}
-	void setMaxWeapons(int maxWeapons) {
-		this.maxWeapons = maxWeapons;
+
+	public void equip(Weapon weapon) {
+		WeaponEquipper.super.equip(weapon);
+		weapon.setLocation(this);
+		weapon.setEquipped(true);
 	}
-	ArrayList<Weapon> getWeapons() {
-		return weapons;
-	}
-	void equipWeapon(Weapon weapon) {
-		if (this.weapons.size()<2)
-		{
-		this.weapons.add(weapon);
-		}
-	}
-	void unequipWeapon(Weapon weapon) {
-		
-		this.weapons.remove(weapon);
+
+	public void unequip(Weapon weapon) {
+		WeaponEquipper.super.unequip(weapon);
+		weapon.setLocation(null);
+		weapon.setEquipped(false);
 	}
 }

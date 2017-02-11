@@ -1,32 +1,34 @@
 
-public class Equipment {
+public abstract class Equipment {
 	
-	private String name;
-	private double mass;
-	private double volume;
-	private Equipment location;
-	
+	protected double mass;
+	protected double volume;
+	protected Ship location;
+	protected String name;
+
+	Equipment(double volume, double mass) {
+		this.volume = volume;
+		this.mass = mass;
+		this.location = null;
+		this.name = null;
+	}
+
 	String getName() {
 		return name;
 	}
-	void setName(String name) {
-		this.name = name;
-	}
+
 	double getMass() {
 		return mass;
 	}
-	void setMass(double mass) {
-		this.mass = mass;
-	}
+
 	double getVolume() {
 		return volume;
 	}
-	void setVolume(double volume) {
-		this.volume = volume;
-	}
+
 	Equipment getLocation() {
 		return location;
 	}
+
 	void setLocation(Ship location) {
 		this.location = location;
 	}
