@@ -41,11 +41,11 @@ public class TransportShip extends Ship implements EquipmentTransporter {
 
 
 	public double getWeightCapacity() {
-		return weightCapacity;
+		return this.weightCapacity;
 	}
 
 	public double getVolumeCapacity() {
-		return volumeCapacity;
+		return this.volumeCapacity;
 	}
 
 	public double getVolumeCapacityRemaining() {

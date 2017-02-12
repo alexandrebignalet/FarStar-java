@@ -21,4 +21,11 @@ public abstract class Ship extends Equipment implements Transporter {
 
         return total;
     }
+
+    public void setLocation(Ship ship) {
+        if ( !(ship instanceof EquipmentTransporter)) {
+            throw new IllegalArgumentException("TransportShip can be load only in EquipmentTransporter");
+        }
+        super.setLocation(ship);
+    }
 }
