@@ -1,10 +1,10 @@
 public class TransportShip extends Ship implements EquipmentTransporter {
 	private static int nbInstances = 0;
 
-	protected double weightCapacity;
-	protected double volumeCapacity;
-	protected double volumeCapacityRemaining;
-	protected double weightCapacityRemaining;
+	private double weightCapacity;
+	private double volumeCapacity;
+	private double volumeCapacityRemaining;
+	private double weightCapacityRemaining;
 
 	public TransportShip(double volume, double mass, double volumeCapacity, double weightCapacity){
 
@@ -20,7 +20,7 @@ public class TransportShip extends Ship implements EquipmentTransporter {
 		this.volumeCapacityRemaining = volumeCapacity;
 		this.weightCapacityRemaining = weightCapacity;
 
-		this.name ="VT-" + ++TransportShip.nbInstances;
+		this.setName("VT-" + ++TransportShip.nbInstances);
 	}
 
 	public void load(Equipment equipment) {

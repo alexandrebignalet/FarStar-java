@@ -1,5 +1,5 @@
 public abstract class Weapon extends Equipment{
-    protected boolean equipped;
+    private boolean equipped;
 
     Weapon(double volume, double mass) {
         super(volume, mass);

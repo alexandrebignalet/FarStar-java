@@ -1,17 +1,17 @@
 public class WarShip extends Ship implements WeaponEquipper {
 
 	private static int nbInstances = 0;
-	protected int maxWeapons;
+	private int maxWeapons;
 
 
 	public WarShip(double volume, double mass, int maxWeapons){
 		super(volume, mass);
 		this.maxWeapons = maxWeapons;
-		this.name = "Warship" + ++WarShip.nbInstances;
+		this.setName("VC-" + ++WarShip.nbInstances);
 	}
 
 	public int getMaxWeapons() {
-		return maxWeapons;
+		return this.maxWeapons;
 	}
 
 	public void load(Equipment equipment) {

@@ -1,11 +1,11 @@
 
 public class Container extends Equipment {
 
-	private static int instanceNbr=0;
+	private static int nbInstances = 0;
 
 	public Container(double volume, double mass)
 	{
 		super(volume, mass);
-		this.name="C-" + ++Container.instanceNbr;
+		this.setName("C-" + ++Container.nbInstances);
 	}
 }

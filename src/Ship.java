@@ -9,11 +9,11 @@ public abstract class Ship extends Equipment implements Transporter {
     }
 
     public ArrayList<Equipment> getEquipments() {
-        return equipments;
+        return this.equipments;
     }
 
     public double getMass(){
-        double total = this.mass;
+        double total = super.getMass();
 
         for (Equipment equipment : this.equipments) {
             total += equipment.getMass();

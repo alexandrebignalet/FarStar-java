@@ -11,7 +11,7 @@ public class Blaster extends Weapon{
 		if ( gazLevel > MAX_GAZ_LEVEL_PERCENT || gazLevel < 0 ) {
 			throw new IllegalArgumentException("Gaz level must be set in percent.");
 		}
-		this.name = "B-" + ++Blaster.nbInstances;
+		this.setName("B-" + ++Blaster.nbInstances);
 		this.gazLevel = gazLevel;
 	}
 	void recharge(){
@@ -19,6 +19,6 @@ public class Blaster extends Weapon{
 	}
 	
 	double getGazLevel() {
-		return gazLevel;
+		return this.gazLevel;
 	}
 }

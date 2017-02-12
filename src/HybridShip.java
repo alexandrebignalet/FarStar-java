@@ -6,7 +6,7 @@ public class HybridShip extends TransportShip implements WeaponEquipper {
     public HybridShip(double volume, double mass, double volumeCapacity, double weightCapacity, int maxWeapons) {
         super(volume, mass, volumeCapacity, weightCapacity);
         this.maxWeapons = maxWeapons;
-        this.name = "MR-" + ++HybridShip.nbInstances;
+        this.setName("MR-" + ++HybridShip.nbInstances);
     }
 
     public int getMaxWeapons() {

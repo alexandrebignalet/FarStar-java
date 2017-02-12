@@ -1,10 +1,10 @@
 
 public abstract class Equipment {
 	
-	protected double mass;
-	protected double volume;
-	protected Ship location;
-	protected String name;
+	private double mass;
+	private double volume;
+	private Ship location;
+	private String name;
 
 
 	Equipment(double volume, double mass) {
@@ -15,19 +15,23 @@ public abstract class Equipment {
 	}
 
 	String getName() {
-		return name;
+		return this.name;
+	}
+
+	void setName(String name) {
+		this.name = name;
 	}
 
 	double getMass() {
-		return mass;
+		return this.mass;
 	}
 
 	double getVolume() {
-		return volume;
+		return this.volume;
 	}
 
 	Ship getLocation() {
-		return location;
+		return this.location;
 	}
 
 	void setLocation(Ship location) {

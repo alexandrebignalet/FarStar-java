@@ -4,6 +4,6 @@ public class Phaser extends Weapon {
 
 	public Phaser(double volume, double mass) {
 		super(volume, mass);
-		this.name = "P-" + ++Phaser.nbInstances;
+		this.setName("P-" + ++Phaser.nbInstances);
 	}
 }
