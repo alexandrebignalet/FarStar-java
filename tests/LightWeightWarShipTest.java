@@ -60,9 +60,9 @@ public class LightWeightWarShipTest {
         LightWeightWarShip lightWeightWarShip = new LightWeightWarShip(this.expectedVolume, this.expectedMass,
                 this.expectedMaxWeapons);
 
-        lightWeightWarShip.equip(p);
+        lightWeightWarShip.load(p);
         assertTrue(lightWeightWarShip.getEquipments().contains(p));
 
-        lightWeightWarShip.equip(b);
+        lightWeightWarShip.load(b);
     }
 }

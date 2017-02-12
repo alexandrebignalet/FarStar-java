@@ -24,7 +24,7 @@ public class TransportShip extends Ship implements EquipmentTransporter {
 	}
 
 	public void load(Equipment equipment) {
-
+		super.load(equipment);
 		EquipmentTransporter.super.load(equipment);
 		equipment.setLocation(this);
 		this.volumeCapacityRemaining -= equipment.getVolume();
@@ -33,7 +33,7 @@ public class TransportShip extends Ship implements EquipmentTransporter {
 
 	public void unload(Equipment equipment) {
 
-		EquipmentTransporter.super.unload(equipment);
+		super.unload(equipment);
 		equipment.setLocation(null);
 		this.volumeCapacityRemaining += equipment.getVolume();
 		this.weightCapacityRemaining += equipment.getMass();

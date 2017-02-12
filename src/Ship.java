@@ -12,7 +12,7 @@ public abstract class Ship extends Equipment implements Transporter {
         return equipments;
     }
 
-    double getMass(){
+    public double getMass(){
         double total = this.mass;
 
         for (Equipment equipment : this.equipments) {

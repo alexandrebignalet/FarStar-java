@@ -9,7 +9,7 @@ public interface EquipmentTransporter extends Transporter {
     double getWeightCapacityRemaining();
 
     default void load(Equipment equipment) {
-        Transporter.super.canLoad(equipment);
+        Transporter.super.load(equipment);
 
         if (this.getVolumeCapacityRemaining() < equipment.getVolume() )
         {
@@ -24,6 +24,6 @@ public interface EquipmentTransporter extends Transporter {
     }
 
     default void unload(Equipment equipment) {
-        Transporter.super.canUnload(equipment);
+        Transporter.super.unload(equipment);
     }
 }

@@ -23,8 +23,8 @@ public class TeacherScenarioTest {
         this.phasers.add(p1);
         this.phasers.add(p2);
 
-        this.vc1.equip(p1);
-        this.vc1.equip(p2);
+        this.vc1.load(p1);
+        this.vc1.load(p2);
 
         this.print("Soit un vaisseau de transport " + this.vt2.getName() + " (volume=100, masse=100, cap_volume=90, cap_masse=300)");
 
@@ -43,7 +43,7 @@ public class TeacherScenarioTest {
 
         this.print("On déséquipe un des phasers de " + this.vc1.getName() +
                    " et on le charge dans " + this.vt2.getName() + " comme du fret");
-        this.vc1.unequip(p1);
+        this.vc1.unload(p1);
         this.vt2.load(p1);
 
         this.print("Soit " + this.mr63.getName() + " un vieux modèle de vaisseau de transport lourd " +

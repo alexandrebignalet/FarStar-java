@@ -14,13 +14,14 @@ public class WarShip extends Ship implements WeaponEquipper {
 		return maxWeapons;
 	}
 
-	public void equip(Weapon weapon) {
-		WeaponEquipper.super.equip(weapon);
-		weapon.setLocation(this);
+	public void load(Equipment equipment) {
+		WeaponEquipper.super.load(equipment);
+
+		equipment.setLocation(this);
 	}
 
-	public void unequip(Weapon weapon) {
-		WeaponEquipper.super.unequip(weapon);
-		weapon.setLocation(null);
+	public void unload(Equipment equipment) {
+		WeaponEquipper.super.unload(equipment);
+		equipment.setLocation(null);
 	}
 }

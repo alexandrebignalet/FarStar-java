@@ -58,7 +58,7 @@ public class WarShipTest {
         Phaser p = new Phaser(1,1);
 
         WarShip warShip = new WarShip(this.expectedVolume, this.expectedMass, this.expectedmaxWeapons);
-        warShip.equip(p);
+        warShip.load(p);
         assertTrue(warShip.getEquipments().contains(p));
     }
 
@@ -69,20 +69,20 @@ public class WarShipTest {
         WarShip warShip = new WarShip(this.expectedVolume, this.expectedMass, this.expectedmaxWeapons);
         for (int i = 0; i < warShip.getMaxWeapons() ; i++) {
             p = new Phaser(1,1);
-            warShip.equip(p);
+            warShip.load(p);
         }
         // Will throw because max weapons reached
         Blaster b = new Blaster(1,1,56);
-        warShip.equip(b);
+        warShip.load(b);
     }
 
     @Test(expected=IllegalArgumentException.class)
     public void test_cannot_equip_weapons_already_equipped() {
         Phaser p = new Phaser(1,1);
         WarShip ws = new WarShip(this.expectedVolume, this.expectedMass, this.expectedmaxWeapons);
-        ws.equip(p);
+        ws.load(p);
         WarShip warShip = new WarShip(this.expectedVolume, this.expectedMass, this.expectedmaxWeapons);
-        warShip.equip(p);
+        warShip.load(p);
     }
 
     @Test(expected=IllegalArgumentException.class)
@@ -92,15 +92,15 @@ public class WarShipTest {
                 this.expectedVolume - 1, 200);
         ts.load(p);
         WarShip warShip = new WarShip(this.expectedVolume, this.expectedMass, this.expectedmaxWeapons);
-        warShip.equip(p);
+        warShip.load(p);
     }
 
     @Test
     public void test_can_unequip_weapons() {
         Phaser p = new Phaser(1,1);
         WarShip warShip = new WarShip(this.expectedVolume, this.expectedMass, this.expectedmaxWeapons);
-        warShip.equip(p);
-        warShip.unequip(p);
+        warShip.load(p);
+        warShip.unload(p);
         assertFalse(warShip.getEquipments().contains(p));
     }
 
@@ -108,7 +108,7 @@ public class WarShipTest {
     public void test_cannot_unequip_weapon_not_equipped() {
         Phaser p = new Phaser(1,1);
         WarShip warShip = new WarShip(this.expectedVolume, this.expectedMass, this.expectedmaxWeapons);
-        warShip.unequip(p);
+        warShip.unload(p);
     }
 
     @Test(expected=IllegalArgumentException.class)
@@ -118,8 +118,8 @@ public class WarShipTest {
         WarShip warShip = new WarShip(this.expectedVolume, this.expectedMass, this.expectedmaxWeapons);
         WarShip ws= new WarShip(this.expectedVolume, this.expectedMass, this.expectedmaxWeapons);
 
-        warShip.equip(p);
-        ws.unequip(p);
+        warShip.load(p);
+        ws.unload(p);
     }
 
     @Test(expected=IllegalArgumentException.class)
@@ -131,6 +131,6 @@ public class WarShipTest {
                 this.expectedVolume - 1, 200);
 
         ts.load(p);
-        warShip.unequip(p);
+        warShip.unload(p);
     }
 }

@@ -7,11 +7,11 @@ public class LightWeightWarShip extends WarShip {
         this.name = "Light WarShip" + ++LightWeightWarShip.instanceNbr;
     }
 
-    public void equip(Weapon weapon) {
-        if ( !(weapon instanceof Phaser) ){
+    public void load(Equipment equipment) {
+        if ( !(equipment instanceof Phaser) ){
             throw new IllegalArgumentException("Only Phaser objects can be loaded by a LightWeightWarShip");
         }
 
-        super.equip(weapon);
+        super.load(equipment);
     }
 }

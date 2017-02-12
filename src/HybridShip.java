@@ -14,12 +14,12 @@ public class HybridShip extends TransportShip implements WeaponEquipper {
     }
 
     public void equip(Weapon weapon) {
-        WeaponEquipper.super.equip(weapon);
+        WeaponEquipper.super.load(weapon);
         weapon.setLocation(this);
     }
 
     public void unequip(Weapon weapon) {
-        WeaponEquipper.super.unequip(weapon);
+        WeaponEquipper.super.load(weapon);
         weapon.setLocation(null);
     }
 }

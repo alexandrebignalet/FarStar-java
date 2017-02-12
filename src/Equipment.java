@@ -26,7 +26,7 @@ public abstract class Equipment {
 		return volume;
 	}
 
-	Equipment getLocation() {
+	Ship getLocation() {
 		return location;
 	}
 

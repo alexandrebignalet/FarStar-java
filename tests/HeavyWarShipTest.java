@@ -60,10 +60,10 @@ public class HeavyWarShipTest {
         HeavyWarShip heavyWarShip = new HeavyWarShip(this.expectedVolume, this.expectedMass,
                 this.expectedMaxWeapons);
 
-        heavyWarShip.equip(p);
+        heavyWarShip.load(p);
         assertTrue(heavyWarShip.getEquipments().contains(p));
 
-        heavyWarShip.equip(b);
+        heavyWarShip.load(b);
         assertTrue(heavyWarShip.getEquipments().contains(b));
     }
 }

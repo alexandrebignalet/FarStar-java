@@ -29,7 +29,7 @@ public class ShipTest {
         Phaser phaser = new Phaser(1,1);
 
         this.transportShip.load(container);
-        this.warShip.equip(phaser);
+        this.warShip.load(phaser);
 
         assertTrue(this.transportShip.getEquipments().contains(container));
         assertTrue(this.warShip.getEquipments().contains(phaser));
@@ -42,7 +42,7 @@ public class ShipTest {
 
         this.transportShip.load(phaser);
 
-        this.warShip.equip(phaser);
+        this.warShip.load(phaser);
     }
 
     @Test(expected=IllegalArgumentException.class)
@@ -60,13 +60,13 @@ public class ShipTest {
         Phaser phaser = new Phaser(1,1);
 
         this.transportShip.load(container);
-        this.warShip.equip(phaser);
+        this.warShip.load(phaser);
 
         int baseEquipmentsSizeTS = this.transportShip.getEquipments().size();
         int baseEquipmentsSizeWS = this.warShip.getEquipments().size();
 
         this.transportShip.unload(container);
-        this.warShip.unequip(phaser);
+        this.warShip.unload(phaser);
 
         assertTrue(this.transportShip.getEquipments().size() < baseEquipmentsSizeTS);
         assertTrue(this.warShip.getEquipments().size() < baseEquipmentsSizeWS);
@@ -81,7 +81,7 @@ public class ShipTest {
         assertNull(phaser.getLocation());
 
         this.transportShip.load(container);
-        this.warShip.equip(phaser);
+        this.warShip.load(phaser);
 
         assertNotNull(container.getLocation());
         assertNotNull(phaser.getLocation());
@@ -93,13 +93,13 @@ public class ShipTest {
         Phaser phaser = new Phaser(1,1);
 
         this.transportShip.load(container);
-        this.warShip.equip(phaser);
+        this.warShip.load(phaser);
 
         assertNotNull(container.getLocation());
         assertNotNull(phaser.getLocation());
 
         this.transportShip.unload(container);
-        this.warShip.unequip(phaser);
+        this.warShip.unload(phaser);
 
         assertNull(container.getLocation());
         assertNull(phaser.getLocation());
