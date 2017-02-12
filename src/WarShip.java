@@ -17,12 +17,10 @@ public class WarShip extends Ship implements WeaponEquipper {
 	public void equip(Weapon weapon) {
 		WeaponEquipper.super.equip(weapon);
 		weapon.setLocation(this);
-		weapon.setEquipped(true);
 	}
 
 	public void unequip(Weapon weapon) {
 		WeaponEquipper.super.unequip(weapon);
 		weapon.setLocation(null);
-		weapon.setEquipped(false);
 	}
 }

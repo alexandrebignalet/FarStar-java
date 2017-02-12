@@ -6,6 +6,7 @@ public abstract class Equipment {
 	protected Ship location;
 	protected String name;
 
+
 	Equipment(double volume, double mass) {
 		this.volume = volume;
 		this.mass = mass;

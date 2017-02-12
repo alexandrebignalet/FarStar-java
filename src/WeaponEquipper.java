@@ -10,9 +10,11 @@ public interface WeaponEquipper extends Transporter {
         }
 
         this.getEquipments().add(weapon);
+        weapon.setEquipped(true);
     }
 
     default void unequip(Weapon weapon) {
         Transporter.super.canUnload(weapon);
+        weapon.setEquipped(false);
     }
 }
